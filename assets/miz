@@ -12,196 +12,118 @@ local function ypkg(pkg)
 	x("yay -S " .. pkg)
 end
 
+local idesk_ref = {
+	["budgie"] = { ipkg, "budgie-desktop" },
+	["cinnamon"] = { ipkg, "cinnamon" },
+	["cutefish"] = { ipkg, "cutefish" },
+	["deepin"] = { ipkg, "deepin" },
+	["enlightenment"] = { ipkg, "enlightenment" },
+	["gnome"] = { ipkg, "gnome" },
+	["gnome-flashback"] = { ipkg, "gnome-flashback" },
+	["kde"] = { ipkg, "plasma" },
+	["lxde"] = { ipkg, "lxde" },
+	["lxqt"] = { ipkg, "lxqt" },
+	["mate"] = { ipkg, "mate" },
+	["sugar"] = { ipkg, "sugar sugar-fructose" },
+	["ukui"] = { ipkg, "ukui" },
+	["xfce"] = { ipkg, "xfce4" },
+	["cde"] = { ypkg, "cdesktopenv" },
+	["ede"] = { ypkg, "ede" },
+	["kde1"] = { ypkg, "kde1-kdebase-git" },
+	["liri"] = { ypkg, "liri-shell-git" },
+	["lumina"] = { ypkg, "lumina-desktop" },
+	["moksha"] = { ypkg, "moksha-git" },
+	["pantheon"] = { ypkg, "pantheon-session-git" },
+	["paperde"] = { ypkg, "paperde" },
+	["phosh"] = { ypkg, "phosh" },
+	["plasma-mobile"] = { ypkg, "plasma-mobile" },
+	["thedesk"] = { ypkg, "thedesk" },
+	["trinity"] = { ipkg, "trinity" },
+	["maui-shell"] = { ypkg, "maui-shell-git" }
+}
+
+local wm_ref = {
+	["2bwm"] = { ypkg, "2bwm" },
+	["9wm"] = { ypkg, "9wm" },
+	["afterstep"] = { ypkg, "afterstep-git" },
+	["berry"] = { ypkg, "berry-git" },
+	["blackbox"] = { ipkg, "blackbox" },
+	["compiz"] = { ipkg, "compiz" },
+	["cwm"] = { ypkg, "cwm" },
+	["eggwm"] = { ypkg, "eggwm" },
+	["enlightenment"] = { ipkg, "enlightenment" },
+	["evilwm"] = { ypkg, "evilwm" },
+	["fluxbox"] = { ipkg, "fluxbox" },
+	["flwm"] = { ypkg, "flwm" },
+	["fvwm"] = { ypkg, "fvwm" },
+	["gala"] = { ipkg, "gala" },
+	["goomwwm"] = { ypkg, "goomwwm" },
+	["icewm"] = { ipkg, "icewm" },
+	["jbwm"] = { ypkg, "jbwm" },
+	["jwm"] = { ipkg, "jwm" },
+	["karmen"] = { ypkg, "karmen" },
+	["kwin"] = { ipkg, "kwin" },
+	["lwm"] = { ipkg, "lwm" },
+	["marco"] = { ipkg, "marco" },
+	["metacity"] = { ipkg, "metacity" },
+	["muffin"] = { ipkg, "muffin" },
+	["mutter"] = { ipkg, "mutter" },
+	["mwm"] = { ipkg, "openmotif" },
+	["openbox"] = { ipkg, "openbox" },
+	["pawm"] = { ypkg, "pawm" },
+	["pekwm"] = { ipkg, "pekwm" },
+	["sawfish"] = { ypkg, "sawfish" },
+	["sowm"] = { ypkg, "sowm" },
+	["tinywm"] = { ypkg, "tinywm" },
+	["twm"] = { ipkg, "xorg-twm" },
+	["ukwm"] = { ipkg, "ukwm" },
+	["uwm"] = { ypkg, "ude" },
+	["wind"] = { ypkg, "windwm" },
+	["windowlab"] = { ypkg, "windowlab" },
+	["windowmaker"] = { ypkg, "windowmaker" },
+	["wm2"] = { ypkg, "wm2" },
+	["worm"] = { ypkg, "worm-git" },
+	["xfwm"] = { ipkg, "xfwm4" },
+	["bspwm"] = { ipkg, "bspwm" },
+	["exwm"] = { ypkg, "exwm-git" },
+	["herbstluftwm"] = { ipkg, "herbstluftwm" },
+	["i3"] = { ipkg, "i3-wm" },
+	["larswm"] = { ypkg, "larswm" },
+	["leftwm"] = { ypkg, "leftwm" },
+	["notion"] = { ipkg, "notion" },
+	["ratpoison"] = { ipkg, "ratpoison" },
+	["stumpwm"] = { ipkg, "stumpwm" },
+	["subtle"] = { ypkg, "subtle-hg" },
+	["wmfs2"] = { ypkg, "wmfs2-git" },
+	["awesome"] = { ipkg, "awesome" },
+	["dwm"] = { ypkg, "dwm" },
+	["echinus"] = { ypkg, "echinus" },
+	["frankenwm"] = { ypkg, "frankenwm" },
+	["i3-gaps"] = { ipkg, "i3-gaps" },
+	["spectrwm"] = { ipkg, "spectrwm" },
+	["qtile"] = { ipkg, "qtile" },
+	["xmonad"] = { ipkg, "xmonad" },
+}
+
 local function idesk(desk)
-	if desk == "budgie" then
-		ipkg("budgie-desktop")
-	elseif desk == "cinnamon" then 
-		ipkg("cinnamon")
-	elseif desk == "cutefish" then
-		ipkg("cutefish")
-	elseif desk == "deepin" then
-		ipkg("deepin")
-	elseif desk == "enlightenment" then
-		ipkg("enlightenment")
-	elseif desk == "gnome" then
-		ipkg("gnome")
-	elseif desk == "gnome-flashback" then
-		ipkg("gnome-flashback")
-	elseif desk == "kde" then
-		ipkg("plasma")
-	elseif desk == "lxde" then
-		ipkg("lxde")
-	elseif desk == "lxqt" then
-		ipkg("lxqt")
-	elseif desk == "mate" then
-		ipkg("mate")
-	elseif desk == "sugar" then
-		ipkg("sugar sugar-fructose")
-	elseif desk == "ukui" then
-		ipkg("ukui")
-	elseif desk == "xfce" then
-		ipkg("xfce4")
-		-- unofficial
-	elseif desk == "cde" then
-		ypkg("cdesktopenv")
-	elseif desk == "ede" then
-		ypkg("ede")
-	elseif desk == "kde1" then
-		ypkg("kde1-kdebase-git")
-	elseif desk == "liri" then
-		ypkg("liri-shell-git")
-	elseif desk == "lumina" then
-		ypkg("lumina-desktop")
-	elseif desk == "moksha" then
-		ypkg("moksha-git")
-	elseif desk == "pantheon" then
-		ypkg("pantheon-session-git")
-	elseif desk == "paperde" then
-		ypkg("paperde")
-	elseif desk == "phosh" then
-		ypkg("phosh")
-	elseif desk == "plasma-mobile" then
-		ypkg("plasma-mobile")
-	elseif desk == "thedesk" then
-		ypkg("thedesk")
-	elseif desk == "trinity" then
-		ipkg("trinity")
-	elseif desk == "maui-shell" then
-		ypkg("maui-shell-git")
-	else 
+	local ref = idesk_ref[desk]
+
+	if ref then
+		ref[1](ref[2])
+	else
 		print("! Error ! Desktop Environment not found!")
 	end
-
 end
-
 
 local function iwm(wm)
-	if wm == "2bwm" then
-		ypkg("2bwm")
-	elseif wm == "9wm" then
-		ypkg("9wm")
-	elseif wm == "afterstep" then
-		ypkg("afterstep-git")
-	elseif wm == "berry" then
-		ypkg("berry-git")
-	elseif wm == "blackbox" then
-		ipkg("blackbox")
-	elseif wm == "compiz" then
-		ipkg("compiz")
-	elseif wm == "cwm" then
-		ypkg("cwm")
-	elseif wm == "eggwm" then
-		ypkg("eggwm")
-	elseif wm == "enlightenment" then
-		ipkg("enlightenment")
-	elseif wm == "evilwm" then
-		ypkg("evilwm")
-	elseif wm == "fluxbox" then
-		ipkg("fluxbox")
-	elseif wm == "flwm" then
-		ypkg("flwm")
-	elseif wm == "fvwm" then
-		ypkg("fvwm")
-	elseif wm == "gala" then
-		ipkg("gala")
-	elseif wm == "goomwwm" then
-		ypkg("goomwwm")
-	elseif wm == "icewm" then
-		ipkg("icewm")
-	elseif wm == "jbwm" then
-		ypkg("jbwm")
-	elseif wm == "jwm" then
-		ipkg("jwm")
-	elseif wm == "karmen" then
-		ypkg("karmen")
-	elseif wm == "kwin" then
-		ipkg("kwin")
-	elseif wm == "lwm" then
-		ipkg("lwm")
-	elseif wm == "marco" then
-		ipkg("marco")
-	elseif wm == "metacity" then
-		ipkg("metacity")
-	elseif wm == "muffin" then
-		ipkg("muffin")
-	elseif wm == "mutter" then
-		ipkg("mutter")
-	elseif wm == "mwm" then
-		ipkg("openmotif")
-	elseif wm == "openbox" then
-		ipkg("openbox")
-	elseif wm == "pawm" then
-		ypkg("pawm")
-	elseif wm == "pekwm" then
-		ipkg("pekwm")
-	elseif wm == "sawfish" then
-		ypkg("sawfish")
-	elseif wm == "sowm" then
-		ypkg("sowm")
-	elseif wm == "tinywm" then
-		ypkg("tinywm")
-	elseif wm == "twm" then
-		ipkg("xorg-twm")
-	elseif wm == "ukwm" then
-		ipkg("ukwm")
-	elseif wm == "uwm" then
-		ypkg("ude")
-	elseif wm == "wind" then
-		ypkg("windwm")
-	elseif wm == "windowlab" then
-		ypkg("windowlab")
-	elseif wm == "windowmaker" then
-		ypkg("windowmaker")
-	elseif wm == "wm2" then
-		ypkg("wm2")
-	elseif wm == "worm" then
-		ypkg("worm-git")
-	elseif wm == "xfwm" then
-		ipkg("xfwm4")
-		-- tiling
-	elseif wm == "bspwm" then
-		ipkg("bspwm")
-	elseif wm == "exwm" then
-		ypkg("exwm-git")
-	elseif wm == "herbstluftwm" then
-		ipkg("herbstluftwm")
-	elseif wm == "i3" then
-		ipkg("i3-wm")
-	elseif wm == "larswm" then
-		ypkg("larswm")
-	elseif wm == "leftwm" then
-		ypkg("leftwm")
-	elseif wm == "notion" then
-		ipkg("notion")
-	elseif wm == "ratpoison" then
-		ipkg("ratpoison")
-	elseif wm == "stumpwm" then
-		ipkg("stumpwm")
-	elseif wm == "subtle" then
-		ypkg("subtle-hg")
-	elseif wm == "wmfs2" then
-		ypkg("wmfs2-git")
-		-- Dynamic
-	elseif wm == "awesome" then
-		ipkg("awesome")
-	elseif wm == "dwm" then
-		ypkg("dwm")
-	elseif wm == "echinus" then
-		ypkg("echinus")
-	elseif wm == "frankenwm" then
-		ypkg("frankenwm")
-	elseif wm == "i3-gaps" then
-		ipkg("i3-gaps")
-	elseif wm == "spectrwm" then
-		ipkg("spectrwm")
-	elseif wm == "qtile" then
-		ipkg("qtile")
-	elseif wm == "xmonad" then
-		ipkg("xmonad")
+	local ref = wm_ref[wm]
+
+	if ref then
+		ref[1](ref[2])
+	else
+		print("! Error ! Window Manager not found!")
 	end
-
 end
-
 
 
 if arg[1] == "service" then
